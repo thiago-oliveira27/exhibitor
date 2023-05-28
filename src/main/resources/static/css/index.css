@@ -183,7 +183,6 @@ body {
   .card:hover{
     border: 15px outset #6db33f;
     transition: all 0.2s ease-in-out;
-
   }
   
   .card h2 {
