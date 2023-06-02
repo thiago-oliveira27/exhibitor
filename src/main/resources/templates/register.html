@@ -15,6 +15,19 @@
     <div class="button">
         <a href="../"> <img src="/css/back-button.png" alt="back"></a>
     </div>
+    
+    <div th:if="${mensagem}" th:text"${mensagem}"></div>
+    <form action="/product/form/save" method="post">
+		
+		Nome: <input type="text" id ="name" name ="name" />
+		Preco: <input type="text" id ="preco" name ="preco" />
+		
+		<button type="submit">Salvar Produto</button>
+		
+		
+		
+	</form>
+    
 </body>
 
 </html>
