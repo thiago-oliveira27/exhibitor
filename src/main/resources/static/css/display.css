@@ -28,7 +28,33 @@ body {
     z-index: 9999;
 }
 
-.button a {
-    color: #ffffff;
-    text-decoration: none;
-}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 490px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+
+  .card:hover{
+    border: 15px outset #6db33f;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 16px;
+  }

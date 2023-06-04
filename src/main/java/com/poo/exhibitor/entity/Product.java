@@ -15,26 +15,86 @@ import lombok.Setter;
 
 @Table(name = "produto")
 @Entity(name = "produto")
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable = false)
 	private String nome;
 	
-	@Column(name = "preco")
+	@Column(name = "preco", nullable = false)
 	private double preco;
 	
+	@Column(name = "image_name")
+	private String imageName;
 	
-	private Product(String nome, double preco){
+	@Column(nullable = false, length = 300)
+	private String description;
+	
+	
+	private Product(String nome, double preco, String imageName, String description){
 		this.nome = nome;
 		this.preco = preco;
-	};
+		this.imageName = imageName;
+		this.description = description;
+	}
+
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public double getPreco() {
+		return preco;
+	}
+
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
+
+	public String getImageName() {
+		return imageName;
+	}
+
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 }

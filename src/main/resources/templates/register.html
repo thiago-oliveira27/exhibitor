@@ -8,26 +8,45 @@
     <title>Exhibitor - Register Page</title>
     <link rel="stylesheet" href="/css/register.css">
     <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    </style>
 
 </head>
 
 <body>
-    <div class="button">
-        <a href="../"> <img src="/css/back-button.png" alt="back"></a>
-    </div>
     
-    <div th:if="${mensagem}" th:text"${mensagem}"></div>
-    <form action="/product/form/save" method="post">
-		
-		Nome: <input type="text" id ="nome" name ="nome" />
-		Preco: <input type="text" id ="preco" name ="preco" />
-		
-		<button type="submit">Salvar Produto</button>
-		
-		
-		
-	</form>
     
+    <div class="card">
+        <div class="button button-top-left">
+            <a href="../../"> <img src="/css/back-button.png" alt="back"></a>     
+        </div>
+        
+        <div th:if="${mensagem}" th:text"${mensagem}"></div>
+        <form action="/product/form/save" method="post" enctype="multipart/form-data">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" 
+            maxlength="30"/>
+
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" name="preco" maxlength="12"/>
+
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description"
+            maxlength="300"></textarea>
+
+            <label for="file">Imagem:</label>
+            <input type="file" id="file" name="file" />
+
+            <div class="submit-button">
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+    </div> 
+
+        
+    
+	   
 </body>
 
 </html>
