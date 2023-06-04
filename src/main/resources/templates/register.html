@@ -12,10 +12,28 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     </style>
 
+    <script>
+        function enviadoComSucesso(){
+            var nome = document.getElementById('nome').value;
+            var preco = document.getElementById('preco').value;
+            var descricao = document.getElementById('description').value;
+            var arquivo = document.getElementById('file').value;
+            var extensao = arquivo.split('.').pop().toLowerCase();
+
+            if (extensao !== 'jpeg' && extensao !== 'jpg') {
+                alert('Por favor, selecione um arquivo JPEG');
+                arquivoInput.value = '';
+                return false;
+            }
+            alert('Registrado com sucesso');
+            return true;   
+
+            }   
+    </script>
+
 </head>
 
 <body>
-    
     
     <div class="card">
         <div class="button button-top-left">
@@ -39,7 +57,7 @@
             <input type="file" id="file" name="file" />
 
             <div class="submit-button">
-                <button type="submit">Registrar</button>
+                <button type="submit" onclick="enviadoComSucesso()">Registrar</button>
             </div>
         </form>
     </div> 

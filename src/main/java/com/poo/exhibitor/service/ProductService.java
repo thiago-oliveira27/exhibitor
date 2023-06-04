@@ -24,6 +24,11 @@ public class ProductService {
 	public void save(Product product) {
 		this.productRepository.save(product);
 	}
+
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

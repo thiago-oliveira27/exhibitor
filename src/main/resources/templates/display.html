@@ -7,16 +7,41 @@
     <title>Exhibitor - Display Page</title>
     <link rel="stylesheet" href="/css/display.css">
     <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 </head>
-<body>
-    <div class="button">
-        <a href="../"> <img src="/css/back-button.png" alt="back"></a>
-    </div>
+<body style="background-color: #150019;">
 
-    <div class="card">
-        <h2>Título do Card</h2>
-        <p>Texto do corpo do card.</p>
+
+
+    <div class="button button-top-left">
+        <a href="../../"> <img src="/css/back-button.png" alt="back"></a>     
+    </div>
+    
+    <div class="container">
+        <div class="row">
+          <div th:each="product : ${productList}" class="col-md-4">
+            <div class="card mb-3">
+              <img th:src="@{/display/{image}(image=${product.imageName})}" class="card-img-top" alt="IMAGE" width="200">
+              <div class="card-body">
+                <h5 th:text="${product.nome}" class="card-title">Product Name</h5>
+                <p th:text="${product.description}" class="card-text">Product Description</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li th:text="${product.preco}" class="list-group-item">Product Value</li>
+              </ul>
+              <div class="card-body">
+                <a href="@{/edit/{id}(id={product.id})}" class="card-link">Edit</a>
+                <a href="@{/delete/{id}(id={product.id})}" class="card-link">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      
+
+
+
+    
 </body>
 </html>

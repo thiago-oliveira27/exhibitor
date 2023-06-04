@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.poo.exhibitor.entity.Product;
 
-public interface ProductRepository extends JpaRepository<Product,Long	> {
+public interface ProductRepository extends JpaRepository<Product,Long> {
 
 }
