@@ -30,7 +30,7 @@ public class UserController {
 		return mv;
 	}
 	
-	@PostMapping
+	@PostMapping("saveUser")
 	private void saveUser(UserModel user){
 		ModelAndView mv = new ModelAndView();
 		userRepository.save(user);
