@@ -1,10 +1,12 @@
-package com.poo.exhibitor.entity;
+package com.poo.exhibitor.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -13,14 +15,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "produto")
-@Entity(name = "produto")
+@Table(name = "product_tb")
+@Entity(name = "product_tb")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class ProductModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
@@ -37,15 +39,20 @@ public class Product {
 	@Column(nullable = false, length = 300)
 	private String description;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private UserModel userId;
 	
-	private Product(String nome, double preco, String imageName, String description){
+	
+	private ProductModel(String nome, double preco, String imageName, String description, UserModel userId){
 		this.nome = nome;
 		this.preco = preco;
 		this.imageName = imageName;
 		this.description = description;
+		this.userId = userId;
 	}
 
-	public Product() {
+	public ProductModel() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -96,5 +103,14 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public UserModel getUserId() {
+		return userId;
+	}
+
+	public void setUserId(UserModel userId) {
+		this.userId = userId;
+	}
+	
 	
 }

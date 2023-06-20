@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
-import com.poo.exhibitor.entity.Product;
+import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.repository.ProductRepository;
 
 @Service
@@ -16,16 +16,16 @@ public class ProductService {
 	private ProductRepository productRepository;
 	
 	
-	public List<Product> getProductList(){
-		Iterable<Product> productIterable = this.productRepository.findAll();
+	public List<ProductModel> getProductList(){
+		Iterable<ProductModel> productIterable = this.productRepository.findAll();
 		return Streamable.of(productIterable).toList();
 	}
 	
-	public void save(Product product) {
+	public void save(ProductModel product) {
 		this.productRepository.save(product);
 	}
 
-	public List<Product> findAll() {
+	public List<ProductModel> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.poo.exhibitor.entity.Product;
+import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.service.ProductService;
 
 @Controller
@@ -25,7 +25,7 @@ public class DisplayController {
 	
 	@GetMapping("/display")
 	public ModelAndView getList() {
-		List<Product> productList = this.productService.getProductList();
+		List<ProductModel> productList = this.productService.getProductList();
 		ModelAndView mv = new ModelAndView("display");
 		mv.addObject("productList", productList);
 		return mv;
