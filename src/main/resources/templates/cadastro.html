@@ -1,18 +1,13 @@
-<head>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
   <meta charset="UTF-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <title>Exhibitor - cadastro</title>
    
   <script sre="https://kit.fontawesome.com/006642858d.js"></script>
-
-  </head>
-<!DOCTYPE html>
-<html>
-<head>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -38,6 +33,16 @@
       box-sizing: border-box;
     }
 
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+    }
+
     .cadastro {
       text-align: center;
       margin-top: 20px;
@@ -61,34 +66,53 @@
     .btn-info {
       background-color: #17a2b8;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
+</style>
+
+<div class="container">
     <div class="main-div">
-      <div class="texto-header">
-        <h2>User Registration</h2>
-        <p>Enter your details to create an account.</p>
-      </div>
+        <div class="texto-header">
+            <h2>User Registration</h2>
+            <div th:if="${mensagemErro}" th:text="${mensagemErro}" class="error-message"></div>
+            <div th:if="${mensagemSucesso}" th:text="${mensagemSucesso}" class="success-message"></div>
+            <form action="/cadastro/form/save" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" placeholder="Username" id="username" name="username" maxlength="30" class="form-control" required/>
+                </div>
 
-      <form method="post" th:object=${user} action="saveUser">
-        <div class="form-group">
-          <input class="form-control" th:field="*{username}" type="text" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <input class="form-control" th:field="*{email}" type="email" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <input class="form-control" th:field="*{password}" type="password" placeholder="Password">
-        </div>
-      </form>
-      
-      <div class="cadastro">
-        <p>Already have an account? <a th:href="@{/}">Login here.</a></p>
-      </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Phone number (only numbers, no spacing)" id="phoneNumber" name="phoneNumber" maxlength="9" class="form-control" required/>
+                </div>
 
-      <button type="submit" class="btn btn-primary">Register</button>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
+                </div>
+
+                <div class="cadastro">
+                    <p>Already have an account? <a th:href="@{/}">Login here.</a></p>
+                </div>
+
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-primary" id="registerButton" disabled>Register</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
+
+  <script>
+    function checkFields() {
+        var username = document.getElementById("username").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        var password = document.getElementById("password").value;
+        if (username !== "" && phoneNumber !== "" && password !== "") {
+            document.getElementById("registerButton").disabled = false;
+        } else {
+            document.getElementById("registerButton").disabled = true;
+        }
+    }
+    document.getElementById("username").addEventListener("input", checkFields);
+    document.getElementById("phoneNumber").addEventListener("input", checkFields);
+    document.getElementById("password").addEventListener("input", checkFields);
+</script>
 </body>
 </html>
