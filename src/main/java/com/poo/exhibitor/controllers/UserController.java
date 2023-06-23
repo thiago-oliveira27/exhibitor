@@ -12,12 +12,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.poo.exhibitor.model.UserModel;
 import com.poo.exhibitor.repository.UserRepository;
+import com.poo.exhibitor.service.UserService;
 
 @Controller
 public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository; 
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/")
     public ModelAndView login() {
@@ -43,7 +47,7 @@ public class UserController {
 			redirect.addFlashAttribute("mensagem","Erro ao cadastrar usuário");
 			return getList(user);
 		}
-		userRepository.saveAndFlush(user);
+		userService.saveUser(user);
 		ModelAndView mv = new ModelAndView();	
 		mv.setViewName("redirect:/");
 		
