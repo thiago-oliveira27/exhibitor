@@ -9,11 +9,5 @@ import com.poo.exhibitor.model.UserModel;
 @Controller
 public class IndexController {
 	
-	@GetMapping("/index")
-	public ModelAndView getList() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/index");
-		mv.addObject("userModel", new UserModel());
-		return mv;
-	}
+
 }

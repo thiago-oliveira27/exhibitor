@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 import com.poo.exhibitor.model.UserModel;
 import com.poo.exhibitor.repository.UserRepository;
 import com.poo.exhibitor.userExceptions.PasswordEncryptionException;
+import com.poo.exhibitor.userExceptions.ServiceExc;
 import com.poo.exhibitor.userExceptions.UserAlreadyExistsException;
-import com.poo.exhibitor.util.Util;
+import com.poo.exhibitor.util.UserUtil;
 
 @Service
 public class UserService {
@@ -24,7 +25,7 @@ public class UserService {
 				throw new UserAlreadyExistsException("This username is already in use");
 			}
 			
-			user.setPassword(Util.md5(user.getPassword()));
+			user.setPassword(UserUtil.md5(user.getPassword()));
 			
 			
 		} catch (NoSuchAlgorithmException e) {
@@ -32,5 +33,10 @@ public class UserService {
 		}
 		
 		userRepository.save(user);
+	}
+	
+	public UserModel getUserLogin(String username, String password) throws ServiceExc {
+		UserModel userLogin = userRepository.getUserLogin(username, password);
+		return userLogin;
 	}
 }

@@ -8,20 +8,16 @@
     <link rel="stylesheet" href="/css/display.css">
     <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <html xmlns:th="http://www.thymeleaf.org"></html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <style>
-        .whatsapp-icon {
-            font-size: 24px; /* Tamanho do ícone */
-            color: black; /* Cor do ícone */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-        }
-    </style>
+
+    
+
 </head>
 <body style="background-color: #150019;">
+
+
 
     <div class="button button-top-left">
         <a href="/index"> <img src="/css/back-button.png" alt="back"></a>     
@@ -40,15 +36,19 @@
                 <li th:text="${product.preco}" class="list-group-item">Product Value</li>
               </ul>
               <div class="card-body">
-                <a href="@{/edit/{id}(id={product.id})}" style="text-decoration: none;" class="card-link">
-                  <div class="whatsapp-icon">
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                  </div>
+                <a href="@{/edit/{id}(id={product.id})}" class="card-link">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  Edit
+                </a>
+                <a href="@{/delete/{id}(id={product.id})}" class="card-link">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  Delete
                 </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
 </body>
 </html>

@@ -11,4 +11,7 @@ public interface UserRepository extends JpaRepository<UserModel,Long> {
 	@Query("select u from user_tb u where u.username = :username")
 	public UserModel findByUsername(@Param(value = "username") String userName);
 
+	@Query("select u from user_tb u where u.username = :username and u.password = :password")
+	public UserModel getUserLogin(@Param(value = "username")String username,@Param(value = "password") String password);
+
 }
