@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-  <title>Exhibitor - cadastro</title>
-   
-  <script sre="https://kit.fontawesome.com/006642858d.js"></script>
+  <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
+
+  <title>Exhibitor - Register</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #150019;
+      color: #ffffff;
     }
 
     .container {
@@ -66,53 +68,59 @@
     .btn-info {
       background-color: #17a2b8;
     }
-</style>
+  </style>
+</head>
 
-<div class="container">
+<body>
+  <div class="container">
     <div class="main-div">
-        <div class="texto-header">
-            <h2>User Registration</h2>
-            <div th:if="${mensagemErro}" th:text="${mensagemErro}" class="error-message"></div>
-            <div th:if="${mensagemSucesso}" th:text="${mensagemSucesso}" class="success-message"></div>
-            <form action="/cadastro/form/save" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" placeholder="Username" id="username" name="username" maxlength="30" class="form-control" required/>
-                </div>
+      <div class="texto-header">
+        <h2>User Registration</h2>
+        <div th:if="${mensagemErro}" th:text="${mensagemErro}" class="error-message"></div>
+        <div th:if="${mensagemSucesso}" th:text="${mensagemSucesso}" class="success-message"></div>
+        <form action="/cadastro/form/save" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="text" placeholder="Username" id="username" name="username" maxlength="30"
+              class="form-control" required />
+          </div>
 
-                <div class="form-group">
-                    <input type="text" placeholder="Phone number (only numbers, no spacing)" id="phoneNumber" name="phoneNumber" maxlength="9" class="form-control" required/>
-                </div>
+          <div class="form-group">
+            <input type="text" placeholder="Phone number (only numbers, no spacing)" id="phoneNumber"
+              name="phoneNumber" maxlength="9" class="form-control" required />
+          </div>
 
-                <div class="form-group">
-                    <input type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
-                </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" id="password" name="password" class="form-control"
+              required />
+          </div>
 
-                <div class="cadastro">
-                    <p>Already have an account? <a th:href="@{/}">Login here.</a></p>
-                </div>
+          <div class="cadastro">
+            <p>Already have an account? <a th:href="@{/}">Login here.</a></p>
+          </div>
 
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-primary" id="registerButton" disabled>Register</button>
-                </div>
-            </form>
-        </div>
+          <div class="submit-button">
+            <button type="submit" class="btn btn-primary" id="registerButton" disabled>Register</button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 
   <script>
     function checkFields() {
-        var username = document.getElementById("username").value;
-        var phoneNumber = document.getElementById("phoneNumber").value;
-        var password = document.getElementById("password").value;
-        if (username !== "" && phoneNumber !== "" && password !== "") {
-            document.getElementById("registerButton").disabled = false;
-        } else {
-            document.getElementById("registerButton").disabled = true;
-        }
+      var username = document.getElementById("username").value;
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      var password = document.getElementById("password").value;
+      if (username !== "" && phoneNumber !== "" && password !== "") {
+        document.getElementById("registerButton").disabled = false;
+      } else {
+        document.getElementById("registerButton").disabled = true;
+      }
     }
     document.getElementById("username").addEventListener("input", checkFields);
     document.getElementById("phoneNumber").addEventListener("input", checkFields);
     document.getElementById("password").addEventListener("input", checkFields);
-</script>
+  </script>
 </body>
+
 </html>

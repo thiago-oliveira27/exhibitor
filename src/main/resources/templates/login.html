@@ -1,24 +1,15 @@
-<head>
-
-  <meta charset="UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-  <title>Projeto Academy - Login</title>
-  <html xmlns:th="http://www.thymeleaf.org"></html>
-   
-  <link rel="stylesheet" href="css/login.css">
-  <script sre="https://kit.fontawesome.com/006642858d.js"></script>
-
-  </head>
-  
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
+  <title>Exhibitor - Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #150019;
+      color: #ffffff;
     }
 
     .container {
@@ -89,11 +80,9 @@
         <button type="submit" class="btn btn-primary">Login</button> <!-- Movido para dentro do formulário -->
       </form>
       
-      
       <div class="cadastro">
-        <p>Don't have an account?<a th:href="@{/cadastro}">Click here.</a></p> 
+        <p>Don't have an account?<a th:href="@{/cadastro}"> Click here.</a></p> 
       </div>
-
     </div>
   </div>
 </body>
