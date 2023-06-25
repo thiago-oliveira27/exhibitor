@@ -23,8 +23,8 @@ transition: border-color 0.3s ease-in-out;
 }
 
 .whatsapp-icon {
-    font-size: 24px; /* Tamanho do ícone */
-    color: black; /* Cor do ícone */
+    font-size: 24px;
+    color: black; 
     display: flex;
     align-items: center;
     justify-content: center;

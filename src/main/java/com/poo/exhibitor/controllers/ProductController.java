@@ -29,9 +29,6 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@Autowired
-	private MyAdsService myAdsService;
-	
 	private static String imagePath = "C:\\Users\\Thiago\\Documents\\imagens\\";
 	
 	@GetMapping("/register")
