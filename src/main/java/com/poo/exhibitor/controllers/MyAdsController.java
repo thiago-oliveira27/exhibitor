@@ -25,13 +25,6 @@ public class MyAdsController {
 		ModelAndView mv = new ModelAndView("myAds");
 		return mv;
 	}
-	/*
-	public ModelAndView listUserAdds() {
-		List <ProductModel> productList = (List<ProductModel>) this.myAdsRepository.findByUserId(); 
-		ModelAndView mv = new ModelAndView("myAds");
-		mv.addObject("productList", productList);
-		return mv;
-	}
-	*/
+
 
 }

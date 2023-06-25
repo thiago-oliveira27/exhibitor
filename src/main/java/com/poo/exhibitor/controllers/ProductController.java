@@ -5,11 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +19,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.poo.exhibitor.model.ProductModel;
+import com.poo.exhibitor.model.UserModel;
 import com.poo.exhibitor.repository.ProductRepository;
+import com.poo.exhibitor.service.MyAdsService;
 
 @Controller
 public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private MyAdsService myAdsService;
 	
 	private static String imagePath = "C:\\Users\\Thiago\\Documents\\imagens\\";
 	
@@ -41,13 +45,17 @@ public class ProductController {
 	
 	@PostMapping("/product/form/save")
 	public ModelAndView saveProduct(@Valid ProductModel product, BindingResult result, 
-							  RedirectAttributes redirect, @RequestParam("file") MultipartFile archive) throws Exception {
+							  RedirectAttributes redirect, @RequestParam("file") MultipartFile archive, HttpSession session, UserModel user) throws Exception {
 		
 		if(result.hasErrors()) {
 			redirect.addFlashAttribute("mensagem","Verifique os campos obrigatórios");
 			return getList(product);
 		}
 		
+		//Recuperando ID do usuário logado na sessão 
+	    Long loggedUserId = (Long) session.getAttribute("userId");
+
+		product.setUserId(loggedUserId);
 		productRepository.saveAndFlush(product);
 		
 		try {

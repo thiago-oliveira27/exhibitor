@@ -83,7 +83,7 @@ public class UserController {
 		if(userLogin == null) {
 			mv.addObject("msg","User not found");
 		}else {
-			session.setAttribute("userLogged", userLogin);
+	        session.setAttribute("userId", userService.getUserId(user.getUsername()));
 			return index();
 		}
 		return mv;

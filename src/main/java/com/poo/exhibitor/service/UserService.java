@@ -1,6 +1,7 @@
 package com.poo.exhibitor.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,4 +40,9 @@ public class UserService {
 		UserModel userLogin = userRepository.getUserLogin(username, password);
 		return userLogin;
 	}
+	
+	public Long getUserId(String username) {
+		return userRepository.getIdByName(username);
+	}
+
 }

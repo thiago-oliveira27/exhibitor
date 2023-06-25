@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -39,12 +40,10 @@ public class ProductModel {
 	@Column(nullable = false, length = 300)
 	private String description;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private UserModel userId;
+	private Long userId;
 	
 	
-	private ProductModel(String nome, double preco, String imageName, String description, UserModel userId){
+	private ProductModel(String nome, double preco, String imageName, String description, Long userId){
 		this.nome = nome;
 		this.preco = preco;
 		this.imageName = imageName;
@@ -104,11 +103,11 @@ public class ProductModel {
 		this.description = description;
 	}
 
-	public UserModel getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UserModel userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	
