@@ -22,7 +22,15 @@
     <div class="button button-top-left">
         <a href="/index"> <img src="/css/back-button.png" alt="back"></a>     
     </div>
-    
+
+    <form method="get" action="/myAds" th:object="${productList}">
+      <div class="alert-wrapper">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" th:if="${noAdsYet}">
+          <strong th:text="${noAdsYet}"></strong>
+        </div>
+      </div> 
+    </form>
+
     <div class="container">
       <div class="row">
         <div th:each="product : ${productList}" class="col-md-4">

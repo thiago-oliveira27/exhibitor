@@ -37,9 +37,9 @@
 }
 
 .divider {
-    width: 1px; /* Largura da linha */
-    height: 70px; /* Altura da linha */
-    background-color: #ccc; /* Cor da linha */
+    width: 1px; 
+    height: 70px; 
+    background-color: #ccc;
 }
 
 .edit-button,
@@ -49,8 +49,6 @@
     align-items: center;
     margin-right: auto;
     margin-left: auto;
-
-    /* Espaçamento opcional entre os ícones */
 }
 
 .edit-icon,
@@ -59,9 +57,17 @@
     justify-content: center;
     align-items: center;
     width: 30px;
-    /* Largura do ícone */
     height: 30px;
-    /* Altura do ícone */
-    border-radius: 50%;
-    /* Formato de círculo opcional */
 }
+
+.alert-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .alert {
+    width: 400px; 
+    display: flex;
+    justify-content: center;
+  }

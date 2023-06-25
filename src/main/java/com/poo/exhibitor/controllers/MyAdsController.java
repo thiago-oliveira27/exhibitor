@@ -24,6 +24,10 @@ public class MyAdsController {
 		List<ProductModel> productList = this.myAdsService.getMyAdsList((Long) session.getAttribute("userId"));
 		ModelAndView mv = new ModelAndView("myAds");
 		mv.addObject("productList", productList);
+		
+		if(productList.size()==0) {
+			mv.addObject("noAdsYet","You don't have any ads yet.");
+		}
 		return mv;
 	}
 	
