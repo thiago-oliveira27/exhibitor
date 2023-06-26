@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.poo.exhibitor.builder.MessageData;
 import com.poo.exhibitor.factory.WhatsAppURLFactory;
 import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.service.ProductService;
@@ -49,12 +50,13 @@ public class DisplayController {
 	}
 	
 	@GetMapping("/display/contact/{id}")
-	private void contactAdvertiser() {
+	private String contactAdvertiser(@PathVariable("id") Long id) {
 		
-		//Recuperar dados para criação da msg - Construir Objeto MessageModel (builder) e extrair dados desse objeto
-		
+		MessageData msgData = this.productService.getMessageData(id);	
 		WhatsAppURLFactory wppLink = new WhatsAppURLFactory();
-		wppLink.generateWhatsAppURL(imagePath, imagePath, imagePath);
+		String link = wppLink.generateWhatsAppURL(msgData.getPhoneNumber(), msgData.getUsername(), msgData.getAdName());
+	
+		return "redirect" + link;
 	}
 	
 }

@@ -44,21 +44,21 @@ public class UserController {
 	}
 		
 	@PostMapping("/cadastro/form/save")
-	public ModelAndView saveUser(@Valid UserModel user, BindingResult result, RedirectAttributes redirect) throws Exception{
-		
+	public String saveUser(@Valid UserModel user, BindingResult result, RedirectAttributes redirect) throws Exception{
+		ModelAndView mv = new ModelAndView();
+
 		if (user.getUsername().isEmpty() || user.getPhoneNumber().isEmpty() || user.getPassword().isEmpty()) {
-	        redirect.addFlashAttribute("mensagemErro", "Erro ao cadastrar usuário. Dados inválidos.");
-	        throw new Exception("Nao foi possível cadastrar");
+	        mv.addObject("mensagemErro", "Error registering user. Invalid data.");
 	    }
-		if(result.hasErrors()) {
-			redirect.addFlashAttribute("mensagem","Erro ao cadastrar usuário");
-			return getList(user);
-		}
-		userService.saveUser(user);
-		ModelAndView mv = new ModelAndView();	
-		mv.setViewName("redirect:/");
 		
-		return getList(new UserModel());
+		if(!userService.isValidUserName(user)) {
+			mv.addObject("error", "This username is already in use");
+			return "cadastro";
+		}else {
+			userService.saveUser(user);						
+		}
+	
+		return "redirect:/";
 	}
 	
 	@GetMapping("/index")

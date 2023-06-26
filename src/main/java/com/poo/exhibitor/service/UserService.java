@@ -1,7 +1,6 @@
 package com.poo.exhibitor.service;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +18,19 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	public Boolean isValidUserName(UserModel user) throws UserAlreadyExistsException {
+		if(userRepository.findByUsername(user.getUsername()) != null) {
+			return false;
+		}
+		return true;
+	}
+	
 	public void saveUser(UserModel user) throws Exception {
 				
 		try {
-			if(userRepository.findByUsername(user.getUsername()) != null) {
-				throw new UserAlreadyExistsException("This username is already in use");
-			}
 			
 			user.setPassword(UserUtil.md5(user.getPassword()));
-			
-			
+
 		} catch (NoSuchAlgorithmException e) {
 			throw new PasswordEncryptionException("Error encrypting password");
 		}
