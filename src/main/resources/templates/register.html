@@ -8,15 +8,17 @@
     <title>Exhibitor - Register Page</title>
     <link rel="stylesheet" href="/css/register.css">
     <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
-    <html xmlns:th="http://www.thymeleaf.org"></html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    </html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     </style>
 
     <script>
-        function enviadoComSucesso(){
+        function enviadoComSucesso() {
             var nome = document.getElementById('nome').value;
             var preco = document.getElementById('preco').value;
             var descricao = document.getElementById('description').value;
@@ -29,49 +31,44 @@
                 return false;
             }
             alert('Successfully registered');
-            return true;   
+            return true;
 
-            }   
+        }   
     </script>
 
 </head>
 
 <body>
-    
+
     <div class="card">
         <div class="button button-top-left">
-            <a href="/index"> <img src="/css/back-button.png" alt="back"></a>     
+            <a href="/index"> <img src="/css/back-button.png" alt="back"></a>
         </div>
-        
+
         <div th:if="${mensagem}" th:text"${mensagem}"></div>
         <form action="/product/form/save" method="post" enctype="multipart/form-data">
             <label for="nome">Name:</label>
-            <input type="text" id="nome" name="nome" 
-            maxlength="30"
-            th:value="${myProduct?.nome}"/>
+            <input type="text" id="nome" name="nome" maxlength="30" th:value="${myProduct?.nome}" />
 
             <label for="preco">Price:</label>
-            <input type="text" id="preco" name="preco" maxlength="12"
-            th:value="${myProduct?.preco}"/>
+            <input type="text" id="preco" name="preco" maxlength="12" th:value="${myProduct?.preco}" />
 
             <label for="description">Description:</label>
-            <textarea id="description" name="description"
-            maxlength="300"
-            th:value="${myProduct?.description}"></textarea>
+            <textarea id="description" name="description" maxlength="300"
+                th:value="${myProduct?.description}"></textarea>
 
             <label for="file">Image: (only JPEG)</label>
-            <input type="file" id="file" name="file" 
-            th:value="${myProduct?.imageName}"/>
+            <input type="file" id="file" name="file" th:value="${myProduct?.imageName}" />
 
             <div class="submit-button">
                 <button type="submit" onclick="enviadoComSucesso()">Registrar</button>
             </div>
         </form>
-    </div> 
+    </div>
 
-        
-    
-	   
+
+
+
 </body>
 
 </html>

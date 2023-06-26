@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,13 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
 
 </head>
+
 <body style="background-color: #150019;">
   <div class="button button-top-left">
-    <a href="/index"> <img src="/css/back-button.png" alt="back"></a>     
-</div>
+    <a href="/index"> <img src="/css/back-button.png" alt="back"></a>
+  </div>
 
-<div class="container">
+  <div class="container">
     <div class="row">
       <div th:each="product : ${productList}" class="col-md-4">
         <div class="card mb-3">
@@ -41,4 +43,5 @@
     </div>
   </div>
 </body>
+
 </html>

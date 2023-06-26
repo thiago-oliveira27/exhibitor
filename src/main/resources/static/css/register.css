@@ -14,8 +14,8 @@ body {
     background: #150019;
 }
 
-.input{
-	background-color: white;
+.input {
+    background-color: white;
 }
 
 .card .button-top-left {
@@ -26,11 +26,11 @@ body {
     margin-bottom: 20px;
 }
 
-.card .button-top-left a:hover{
+.card .button-top-left a:hover {
     background: #150019;
-    border-color: #6db33f #150019 #6db33f #6db33f; 
-    border-style: solid; 
-    border-width: 8px; 
+    border-color: #6db33f #150019 #6db33f #6db33f;
+    border-style: solid;
+    border-width: 8px;
     transition: all 0.2s ease-in-out;
     border-radius: 35px 0 0 35px;
 }
@@ -42,7 +42,7 @@ body {
     align-items: center;
     background-color: #6db33f;
     padding: 10px 10px;
-    border-radius: 50px 10px 10px 50px ;
+    border-radius: 50px 10px 10px 50px;
     transition: border-color 0.3s ease-in-out;
 }
 
@@ -60,13 +60,13 @@ body {
     padding: 20px;
     border-radius: 5px;
     background-color: #f9f9f9;
-  }
+}
 
-  .card:hover{
+.card:hover {
     border: 15px outset #6db33f;
     transition: all 0.2s ease-in-out;
-  }
-  
+}
+
 .card form {
     margin-top: 20px;
 }
@@ -87,7 +87,7 @@ body {
     margin-top: 10px;
 }
 
-.card textarea[name="description"]{
+.card textarea[name="description"] {
     width: 100%;
     padding: 8px;
     border-radius: 5px;
@@ -106,8 +106,8 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
-    
-    
+
+
     position: absolute;
     left: 50%;
     bottom: 20px;
@@ -121,7 +121,7 @@ body {
 
 .card button[type="submit"]:hover {
     box-shadow: 0 0 5px #bcf695,
-0 0 15px #bcf695,0 0 15px #bcf695,
-0 0 15px #bcf695, 0 0 15px #bcf695;
+        0 0 15px #bcf695, 0 0 15px #bcf695,
+        0 0 15px #bcf695, 0 0 15px #bcf695;
 
 }

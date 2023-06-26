@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,6 +58,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="main-div">
@@ -66,8 +68,7 @@
       </div>
 
       <form method="post" action="/login" th:object="${user}">
-        <div class="alert alert-danger"  style="color: red;"
-        role="alert" th:if="${msg}">
+        <div class="alert alert-danger" style="color: red;" role="alert" th:if="${msg}">
           <strong th:text="${msg}"></strong>
         </div>
         <div class="form-group">
@@ -76,14 +77,15 @@
         <div class="form-group">
           <input class="form-control" th:field="*{password}" type="password" placeholder="Password">
         </div>
-        
+
         <button type="submit" class="btn btn-primary">Login</button> <!-- Movido para dentro do formulário -->
       </form>
-      
+
       <div class="cadastro">
-        <p>Don't have an account?<a th:href="@{/cadastro}"> Click here.</a></p> 
+        <p>Don't have an account?<a th:href="@{/cadastro}"> Click here.</a></p>
       </div>
     </div>
   </div>
 </body>
+
 </html>
