@@ -56,7 +56,7 @@ public class DisplayController {
 		WhatsAppURLFactory wppLink = new WhatsAppURLFactory();
 		String link = wppLink.generateWhatsAppURL(msgData.getPhoneNumber(), msgData.getUsername(), msgData.getAdName());
 	
-		return "redirect" + link;
+		return "redirect:" + link;
 	}
 	
 }

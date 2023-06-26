@@ -32,7 +32,7 @@
             <li th:text="${product.preco}" class="list-group-item">Product Value</li>
           </ul>
           <div class="card-body">
-            <a href="@{/edit/{id}(id={product.id})}" style="text-decoration: none;" class="card-link">
+            <a th:href="@{/display/contact/{id}(id=${product.id})}" style="text-decoration: none;" class="card-link">
               <div class="whatsapp-icon">
                 <i class="fa fa-whatsapp" aria-hidden="true"></i>
               </div>
