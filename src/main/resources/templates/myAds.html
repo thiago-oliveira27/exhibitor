@@ -45,7 +45,7 @@
             </ul>
             <div class="card-body">
               <div class="edit-button">
-                <a href="@{/edit/{id}(id={product.id})}" class="card-link" style="text-decoration: none;">
+                <a th:href="@{/myAds/edit/{id}(id=${product.id})}" class="card-link" style="text-decoration: none;">
                   <div class="edit-icon">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </div>

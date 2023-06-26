@@ -25,6 +25,11 @@ public class ProductService {
 		this.productRepository.save(product);
 	}
 
+	
+	public void getMessageData() {
+		//this.productRepository.findDataToMessage(null);
+	}
+	
 	public List<ProductModel> findAll() {
 		// TODO Auto-generated method stub
 		return null;

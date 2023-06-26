@@ -1,6 +1,7 @@
 package com.poo.exhibitor.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,15 +27,28 @@ public class MyAdsController {
 		mv.addObject("productList", productList);
 		
 		if(productList.size()==0) {
-			mv.addObject("noAdsYet","You don't have any ads yet.");
+			mv.addObject("noAdsYet","You have no ads yet.");
 		}
 		return mv;
 	}
 	
 	@GetMapping("/myAds/delete/{id}")
-	public String deleteAdd(@PathVariable("id") Long id){
+	public String deleteAd(@PathVariable("id") Long id){
 		this.myAdsService.deleteMyAd(id);
 		return "redirect:/myAds";
+		
+	}
+	
+	@GetMapping("/myAds/edit/{id}")
+	public ModelAndView editAd(@PathVariable("id") Long id, HttpSession session){
+		
+		ModelAndView mv = new ModelAndView("register"); 
+		List<ProductModel> productList = this.myAdsService.getMyAdsList((Long) session.getAttribute("userId"));
+		mv.addObject("productList", productList);
+		
+		ProductModel myProduct = this.myAdsService.findById(id) ;
+		mv.addObject("myProduct", myProduct);
+		return mv;
 		
 	}
 	

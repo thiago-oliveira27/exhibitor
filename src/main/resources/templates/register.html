@@ -47,17 +47,21 @@
         <form action="/product/form/save" method="post" enctype="multipart/form-data">
             <label for="nome">Name:</label>
             <input type="text" id="nome" name="nome" 
-            maxlength="30"/>
+            maxlength="30"
+            th:value="${myProduct?.nome}"/>
 
             <label for="preco">Price:</label>
-            <input type="text" id="preco" name="preco" maxlength="12"/>
+            <input type="text" id="preco" name="preco" maxlength="12"
+            th:value="${myProduct?.preco}"/>
 
             <label for="description">Description:</label>
             <textarea id="description" name="description"
-            maxlength="300"></textarea>
+            maxlength="300"
+            th:value="${myProduct?.description}"></textarea>
 
             <label for="file">Image: (only JPEG)</label>
-            <input type="file" id="file" name="file" />
+            <input type="file" id="file" name="file" 
+            th:value="${myProduct?.imageName}"/>
 
             <div class="submit-button">
                 <button type="submit" onclick="enviadoComSucesso()">Registrar</button>

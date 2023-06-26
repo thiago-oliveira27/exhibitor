@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.poo.exhibitor.factory.WhatsAppURLFactory;
 import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.service.ProductService;
 
@@ -46,4 +47,14 @@ public class DisplayController {
 		}
 		return null;
 	}
+	
+	@GetMapping("/display/contact/{id}")
+	private void contactAdvertiser() {
+		
+		//Recuperar dados para criação da msg - Construir Objeto MessageModel (builder) e extrair dados desse objeto
+		
+		WhatsAppURLFactory wppLink = new WhatsAppURLFactory();
+		wppLink.generateWhatsAppURL(imagePath, imagePath, imagePath);
+	}
+	
 }
