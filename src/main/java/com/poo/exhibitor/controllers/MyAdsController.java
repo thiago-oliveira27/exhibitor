@@ -38,21 +38,5 @@ public class MyAdsController {
 		return "redirect:/myAds";
 		
 	}
-	
-	@GetMapping("/myAds/edit/{id}")
-	public ModelAndView editAd(@PathVariable("id") Long id, HttpSession session){
-		
-		ModelAndView mv = new ModelAndView("register"); 
-		List<ProductModel> productList = this.myAdsService.getMyAdsList((Long) session.getAttribute("userId"));
-		mv.addObject("productList", productList);
-		
-		ProductModel myProduct = this.myAdsService.findById(id) ;
-		mv.addObject("myProduct", myProduct);
-		return mv;
-		
-	}
-	
-
-	
 
 }

@@ -36,11 +36,6 @@
     align-items: center;
 }
 
-.divider {
-    width: 1px;
-    height: 70px;
-    background-color: #ccc;
-}
 
 .edit-button,
 .delete-button {

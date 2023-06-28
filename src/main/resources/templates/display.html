@@ -29,8 +29,8 @@
             <p th:text="${product.description}" class="card-text">Product Description</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li th:text="${product.preco}" class="list-group-item">Product Value</li>
-          </ul>
+            <li class="list-group-item">R$ <span th:text="${product.preco}"></span></li>
+        </ul>
           <div class="card-body">
             <a th:href="@{/display/contact/{id}(id=${product.id})}" style="text-decoration: none;" class="card-link">
               <div class="whatsapp-icon">
