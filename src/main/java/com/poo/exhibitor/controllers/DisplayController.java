@@ -62,5 +62,4 @@ public class DisplayController {
 	
 		return "redirect:" + link;
 	}
-	
 }

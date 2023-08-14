@@ -2,6 +2,7 @@ package com.poo.exhibitor.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.poo.exhibitor.builder.MessageData;
 import com.poo.exhibitor.connection.facade.DataBaseFacade;
 import com.poo.exhibitor.model.ProductModel;
+import com.poo.exhibitor.entity.Product;
 import com.poo.exhibitor.repository.ProductRepository;
 
 @Service
@@ -66,6 +68,14 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public List<Product> getProductList(){
+		Iterable<Product> productIterable = this.productRepository.findAll();
+		return Streamable.of(productIterable).toList();
+	}
 	
+	public void save(Product product) {
+		this.productRepository.save(product);
+	}
+
 	
 }

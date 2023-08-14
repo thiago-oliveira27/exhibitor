@@ -16,4 +16,13 @@ public interface ProductRepository extends JpaRepository<ProductModel, Long> {
 //	List<Object[]> findDataToMessage(@Param("id") Long id);
 
 
+import org.springframework.data.repository.CrudRepository;
+
+import com.poo.exhibitor.entity.Product;
+
+public interface ProductRepository extends CrudRepository<Product,Long	> {
+	
+	
+	@Override
+	List<Product> findAll();
 }
