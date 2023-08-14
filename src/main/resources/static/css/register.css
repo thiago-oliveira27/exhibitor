@@ -1,38 +1,127 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Poppins;
-    letter-spacing: 2.5rem;
-
+    font-family: 'Roboto', sans-serif;
 }
 
 head {
-
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 body {
     background: #150019;
 }
 
-.button {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    /* ajuste a distância direita conforme necessário */
-    border-radius: 50%;
-    background-color: #6db33f; 
-    border-radius: 50%; 
-    padding: 5px;
+.input {
+    background-color: white;
 }
 
-.button img {
-    display: flex; 
-    justify-content: center; 
+.card .button-top-left {
+    position: absolute;
+    top: -1px;
+    left: -95px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card .button-top-left a:hover {
+    background: #150019;
+    border-color: #6db33f #150019 #6db33f #6db33f;
+    border-style: solid;
+    border-width: 8px;
+    transition: all 0.2s ease-in-out;
+    border-radius: 35px 0 0 35px;
+}
+
+
+.card .button-top-left a {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: #6db33f;
+    padding: 10px 10px;
+    border-radius: 50px 10px 10px 50px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 490px;
+    height: 530px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.card:hover {
+    border: 15px outset #6db33f;
+    transition: all 0.2s ease-in-out;
+}
+
+.card form {
+    margin-top: 20px;
+}
+
+.card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.card input[type="text"],
+.card input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #6db33f;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.card textarea[name="description"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #6db33f;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    resize: none;
+    height: 50px;
+}
+
+.card button[type="submit"] {
+    background-color: #6db33f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+
+
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 115px;
+    box-shadow: 0 0 5px #6db33f, 0 0 5px #6db33f;
+
+
+}
+
+.card button[type="submit"]:hover {
+    box-shadow: 0 0 5px #bcf695,
+        0 0 15px #bcf695, 0 0 15px #bcf695,
+        0 0 15px #bcf695, 0 0 15px #bcf695;
+
 }

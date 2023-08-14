@@ -24,6 +24,16 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.5'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.1'
+	//implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.0.4'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation group: 'io.github.cdimascio', name: 'java-dotenv', version: '5.2.2'
+	
+	
+	
+
 }
 
 tasks.named('test') {

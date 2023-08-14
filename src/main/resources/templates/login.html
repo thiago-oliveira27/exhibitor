@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/css/spring-icon-svgrepo-com.svg" />
+  <title>Exhibitor - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #150019;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .texto-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .cadastro {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+    }
+
+    .btn-info {
+      background-color: #17a2b8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-div">
+      <div class="texto-header">
+        <h2>User Login</h2>
+        <p>Enter your credentials to login to the system.</p>
+      </div>
+
+      <form method="post" action="/login" th:object="${user}">
+        <div class="alert alert-danger" style="color: red;" role="alert" th:if="${msg}">
+          <strong th:text="${msg}"></strong>
+        </div>
+        <div class="form-group">
+          <input class="form-control" th:field="*{username}" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input class="form-control" th:field="*{password}" type="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button> <!-- Movido para dentro do formulário -->
+      </form>
+
+      <div class="cadastro">
+        <p>Don't have an account?<a th:href="@{/cadastro}"> Click here.</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
