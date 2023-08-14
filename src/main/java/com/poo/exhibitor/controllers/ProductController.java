@@ -22,6 +22,7 @@ import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.model.UserModel;
 import com.poo.exhibitor.repository.ProductRepository;
 import com.poo.exhibitor.service.MyAdsService;
+import com.poo.exhibitor.util.UserUtil;
 
 @Controller
 public class ProductController {
@@ -32,9 +33,10 @@ public class ProductController {
 	private static String imagePath = "C:\\Users\\Thiago\\Documents\\imagens\\";
 	
 	@GetMapping("/register")
-	public ModelAndView getList(ProductModel product) {
+	public ModelAndView getList(ProductModel product, HttpSession session) {
 		
 		ModelAndView mv = new ModelAndView("register");
+		UserUtil.isUserLogged(session, mv);
 		//List<Product> productList = this.productService.getProductList();
 		//mv.addObject("productList",productList);
 		return mv;
@@ -43,11 +45,6 @@ public class ProductController {
 	@PostMapping("/product/form/save")
 	public ModelAndView saveProduct(@Valid ProductModel product, BindingResult result, 
 							  RedirectAttributes redirect, @RequestParam("file") MultipartFile archive, HttpSession session, UserModel user) throws Exception {
-		
-		if(result.hasErrors()) {
-			redirect.addFlashAttribute("mensagem","Verifique os campos obrigatórios");
-			return getList(product);
-		}
 		
 		//Recuperando ID do usuário logado na sessão 
 	    Long loggedUserId = (Long) session.getAttribute("userId");
@@ -69,6 +66,6 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		
-		return getList(new ProductModel());
+		return getList(new ProductModel(), session);
 	}
 }

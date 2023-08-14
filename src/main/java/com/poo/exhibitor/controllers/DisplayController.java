@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,7 @@ import com.poo.exhibitor.builder.MessageData;
 import com.poo.exhibitor.factory.WhatsAppURLFactory;
 import com.poo.exhibitor.model.ProductModel;
 import com.poo.exhibitor.service.ProductService;
+import com.poo.exhibitor.util.UserUtil;
 
 @Controller
 public class DisplayController {
@@ -26,9 +29,10 @@ public class DisplayController {
 	private static String imagePath = "C:\\Users\\Thiago\\Documents\\imagens\\";
 	
 	@GetMapping("/display")
-	public ModelAndView getList() {
+	public ModelAndView getList(HttpSession session) {
 		List<ProductModel> productList = this.productService.getProductList();
 		ModelAndView mv = new ModelAndView("display");
+		UserUtil.isUserLogged(session, mv);
 		mv.addObject("productList", productList);
 		return mv;
 	}
